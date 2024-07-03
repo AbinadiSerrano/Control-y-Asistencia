@@ -64,9 +64,9 @@ class AsistenciaResource extends Resource
                     Tables\Columns\TextColumn::make('empleados.materno')
                         ->label('A Materno')
                         ->sortable(),
-                    Tables\Columns\TextColumn::make('cargo_id', function () {
-                            return $this->empleados->cargos->nombre; // Access cargo name
-                        })->label('Cargo')
+                    
+                    Tables\Columns\TextColumn::make('empleados.cargos.nombre')
+                        ->label('Cargo')
                         ->sortable(),
                     Tables\Columns\TextColumn::make('created_at')
                         ->dateTime()
@@ -88,15 +88,16 @@ class AsistenciaResource extends Resource
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
-                ]),
-            ]);
+                ])
+             ]);
+            
+
     }
 
     public static function getRelations(): array
     {
         return [
-            //'empleados' => BelongsTo::make('empleados'),
-            // ... other relationships
+            //
         ];
     }
 

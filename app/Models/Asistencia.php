@@ -15,4 +15,9 @@ class Asistencia extends Model
     {
         return $this->belongsTo(Empleado::class,'empleado_id');
     }
+
+    /*public function cargo()
+{
+    return $this->belongsTo(Cargo::class, 'cargo_id');
+}*/
 }

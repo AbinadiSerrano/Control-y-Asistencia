@@ -16,4 +16,9 @@ class ListAsistencias extends ListRecords
             Actions\CreateAction::make(),
         ];
     }
+    public function query(): Builder
+    {
+        return Asistencia::query()
+            ->with(['empleados.cargo']); // Carga la relación para mostrar el nombre del cargo
+    }
 }
