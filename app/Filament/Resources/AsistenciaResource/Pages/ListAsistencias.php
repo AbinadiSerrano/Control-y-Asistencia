@@ -4,7 +4,9 @@ namespace App\Filament\Resources\AsistenciaResource\Pages;
 
 use App\Filament\Resources\AsistenciaResource;
 use Filament\Actions;
+use Filament\Actions\Action;
 use Filament\Resources\Pages\ListRecords;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class ListAsistencias extends ListRecords
 {
@@ -13,7 +15,15 @@ class ListAsistencias extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
-            Actions\CreateAction::make(),
+           // Actions\CreateAction::make(),
+            Action::make('createPdf')
+            ->label('crear reporte')
+            ->color('info')
+            ->requiresConfirmation()
+            ->url(
+                fn():string => route('pdf.example'),
+                shouldOpenInNewTab: true
+            ),
         ];
     }
     public function query(): Builder

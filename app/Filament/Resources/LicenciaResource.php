@@ -32,8 +32,8 @@ class LicenciaResource extends Resource
                     ->required(),
                 Forms\Components\Select::make('estado')
                     ->options([
-                        'M' => 'Aprobado',
-                        'F' => 'No Aprobado',
+                        'Aprobado' => 'Aprobado',
+                        'No Aprobado' => 'No Aprobado',
                      ])
                     ->required(),
                 Forms\Components\Select::make('empleado_id')
@@ -57,6 +57,11 @@ class LicenciaResource extends Resource
                     ->date()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('estado')
+                    ->badge()
+                    ->color(fn(string $state): string =>match ($state){
+                        'Aprobado' => 'success',
+                        'No Aprobado' => 'danger',
+                    })
                     ->searchable(),
                 Tables\Columns\TextColumn::make('empleados.nombre')
                     ->label('Nombre')

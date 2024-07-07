@@ -26,10 +26,8 @@ class AsistenciaResource extends Resource
             Forms\Components\DateTimePicker::make('entrada')
                 ->required(),
             Forms\Components\DateTimePicker::make('salida'),
-            Forms\Components\TextInput::make('horas_extra')
-                ->numeric()
-                ->default(null),
             Forms\Components\TextInput::make('horas_descuento')
+             ->label('Dias decuento')
                 ->numeric()
                 ->default(null),
             Forms\Components\TextInput::make('empleado_id')
@@ -49,10 +47,8 @@ class AsistenciaResource extends Resource
                     Tables\Columns\TextColumn::make('salida')
                         ->dateTime()
                         ->sortable(),
-                    Tables\Columns\TextColumn::make('horas_extra')
-                        ->numeric()
-                        ->sortable(),
                     Tables\Columns\TextColumn::make('horas_descuento')
+                        ->label('Dias descuento')
                         ->numeric()
                         ->sortable(),
                     Tables\Columns\TextColumn::make('empleados.nombre')
@@ -89,6 +85,8 @@ class AsistenciaResource extends Resource
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
                 ])
+            
+            
              ]);
             
 

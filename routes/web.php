@@ -2,7 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AsistenciaController;
-
+use App\Http\Controllers\PdfController;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +20,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::post('/asistencia',[AsistenciaController::class,'store']);
-//Route::put('/asis',[AsistenciaController::class,'update']);
+//reporte
+Route::get('/pdf',[PdfController::class,'CrearReporte'])->name('pdf.example');
