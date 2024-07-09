@@ -39,6 +39,7 @@ h1{
     text-align: center;
     font-size: 25px;
     margin-bottom: 20px;
+    width: 100%;
 }
 input{
     width: 100%;
@@ -68,4 +69,12 @@ input{
     text-align: center;
     text-decoration: none;
     border-radius: 10px;
+}
+@media screen and (max-width:800px){
+    .carnet{
+        width: 100%;
+    }
+    .container{
+        width: 100%;
+    }
 }

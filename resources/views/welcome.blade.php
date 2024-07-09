@@ -16,40 +16,35 @@
     
 </head>
 <body >
-    <h1 class="titulo">REGISTRA TU ASISTENCIA</h1>
-    <h2 id="fecha"></h2>
-    <div class="container">
-        <a href="{{ url('http://127.0.0.1:8000/admin') }} "class="acceso">Ingresar al Sistema</a>
-        <p class="carnet">Ingrese su numero de carnet</p>
-        <form action= "{{ asset ('asistencia') }}" method="POST">
-            @csrf
-            <input type="number" placeholder="CI del empleado" name="txtCI">
-            <div class="botones">
-            <button type="submit" class="entrada" name="btnaccion"value="entrada">ENTRADA</button>
-            <button type="submit"class="salida" name ="btnaccion"value="salida">SALIDA</button>
-           </div>
-           <div>
-               @php
-                    if(isset($success)){
-                        echo  $success;
-                    }
-               @endphp
-           </div>
-        </form>
-      
+    <div class="contenedor">
+        <h1 class="titulo">REGISTRA TU ASISTENCIA</h1>
+        <h2 id="fecha"></h2>
+        <div class="container">
+            <a href="{{ url('admin') }} "class="acceso">Ingresar al Sistema</a>
+            <p class="carnet">Ingrese su numero de carnet</p>
+            <form action= "{{ asset ('asistencia') }}" method="POST">
+                @csrf
+                <input type="number" placeholder="CI del empleado" name="txtCI">
+                <div class="botones">
+                <button type="submit" class="entrada" name="btnaccion"value="entrada">ENTRADA</button>
+                <button type="submit"class="salida" name ="btnaccion"value="salida">SALIDA</button>
+            </div>
+            <div>
+            </div>
+            </form>
+        
+        </div>   
+    
+        <script>
+            setInterval(() => {
+                let fecha = new Date();
+                let fechaHora = fecha.toLocaleString();
+                document.getElementById("fecha").textContent = fechaHora;
+            }, 1000);
+        
+        </script>
+        @include('notify::components.notify')
+        @notifyJs
     </div>
-       
-  
-    <script>
-        setInterval(() => {
-            let fecha = new Date();
-            let fechaHora = fecha.toLocaleString();
-            document.getElementById("fecha").textContent = fechaHora;
-        }, 1000);
-       
-    </script>
-    @include('notify::components.notify')
-    @notifyJs
-
 </body>
 </html>
