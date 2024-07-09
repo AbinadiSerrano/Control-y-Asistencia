@@ -25,6 +25,7 @@ return new class extends Migration
             $table->foreignId('horario_id')->constrained('horarios');
             $table->date('fecha_contrato');
             $table->float('sueldo', 8, 2);
+            $table->float('descuentodia');
             $table->timestamps();
         });
     }

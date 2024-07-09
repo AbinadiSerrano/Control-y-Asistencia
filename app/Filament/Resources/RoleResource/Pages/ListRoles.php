@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Filament\Resources\CargoResource\Pages;
+namespace App\Filament\Resources\RoleResource\Pages;
 
-use App\Filament\Resources\CargoResource;
+use App\Filament\Resources\RoleResource;
 use Filament\Actions;
 use Filament\Resources\Pages\ListRecords;
 
-class ListCargos extends ListRecords
+class ListRoles extends ListRecords
 {
-    protected static string $resource = CargoResource::class;
+    protected static string $resource = RoleResource::class;
 
     protected function getHeaderActions(): array
     {
@@ -16,5 +16,4 @@ class ListCargos extends ListRecords
             Actions\CreateAction::make(),
         ];
     }
-
 }

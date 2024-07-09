@@ -8,6 +8,7 @@
 </head>
 <body>
     <h1>PLANILLA DE ASISTENCIA</h1>
+   
     <div class="container">
             <table class="table table-bordered">
         <thead>
@@ -26,32 +27,25 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-            <td>9637311</td>
-            <td>2024/05/12</td>
-            <td>abinadi</td>
-            <td>serrano</td>
-            <td>soliz</td>
-            <td>M</td>
-            <td>ayudante de limpieza</td>
-            <td>2222</td>
-            <td>14587</td>
-            <td>4</td>
-            <td>45214</td>
-            </tr>
-            <tr>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            </tr>
-            <tr>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-            </tr>
+            @foreach($empleados as $asistencia)
+                <tr>
+                    <td>{{$asistencia->CI}}</td>
+                    <td>{{$asistencia->fecha_contrato}}</td>
+                    <td>{{$asistencia->nombre}}</td>
+                    <td>{{$asistencia->paterno}}</td>
+                    <td>{{$asistencia->materno}}</td>
+                    <td>{{$asistencia->genero}}</td>
+                    <td>{{$asistencia->cargos->nombre}}</td>
+                    <td>{{$asistencia->sueldo}}</td>
+                    <td>{{$asistencia->sueldo * 0.1221}}</td>
+                    <td>{{$asistencia->horas_descuento_total}}</td>
+                    <td>{{$asistencia->sueldo -(($asistencia->sueldo*0.1221)+($asistencia->horas_descuento_total * $asistencia->descuentodia))}}</td>
+                </tr>
+            @endforeach
         </tbody>
         </table>
     </div>
-
+   
 <style>
         *{
             margin:0;

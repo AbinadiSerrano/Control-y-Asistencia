@@ -17,7 +17,7 @@ class EmpleadoResource extends Resource
 {
     protected static ?string $model = Empleado::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationIcon = 'heroicon-o-user-plus';
 
     public static function form(Form $form): Form
     {
@@ -63,6 +63,8 @@ class EmpleadoResource extends Resource
                     ->required(),
                 Forms\Components\TextInput::make('sueldo')
                     ->numeric(),
+                Forms\Components\TextInput::make('descuentodia')
+                    ->numeric(),
             ]);
     }
 
@@ -103,6 +105,9 @@ class EmpleadoResource extends Resource
                     ->date()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('sueldo')
+                    ->numeric()
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('descuentodia')
                     ->numeric()
                     ->sortable(),
                 Tables\Columns\TextColumn::make('created_at')

@@ -17,7 +17,7 @@ class ListAsistencias extends ListRecords
         return [
            // Actions\CreateAction::make(),
             Action::make('createPdf')
-            ->label('crear reporte')
+            ->label('Generar Reporte')
             ->color('info')
             ->requiresConfirmation()
             ->url(
