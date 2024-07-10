@@ -86,7 +86,7 @@ class AsistenciaController extends Controller
 
                 $salida = Asistencia::where('empleado_id',$empleado->id)->whereDate('salida',$fechaActual)->first();
                 
-                if ($salida) {
+                if ($salida) {  
                     notify()->warning('El empleado ya registro salida el dia de hoy', 'ALERTA');
                     return view('welcome');
                 }
