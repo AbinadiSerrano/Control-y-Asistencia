@@ -87,7 +87,8 @@ class AsistenciaResource extends Resource
                 ])
             
             
-             ]);
+             ])
+             ->defaultSort('created_at', 'desc');
             
 
     }
